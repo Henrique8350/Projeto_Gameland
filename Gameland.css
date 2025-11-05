@@ -8,6 +8,7 @@ body {
     background-color: darkgray;
     /* Adicionando uma fonte padrão para todo o corpo */
     font-family: Arial, sans-serif;
+
 }
 
 /* --- Nav Bar --- */
@@ -20,7 +21,6 @@ body {
     justify-content: center; 
     background-color: crimson;
     /* AJUSTE: Aumentar o padding para o carrinho absoluto não ficar por cima */
-    padding: 10px 60px 10px 10px; /* Adicionado padding à direita */
     position: relative; /* ESSENCIAL para o position: absolute do carrinho */
     padding: 10px 0; /* Adiciona padding vertical para melhor visual */
 }
@@ -69,7 +69,7 @@ body {
 }
 
 /* Estilo para todos os cards */
-.jogo1, .jogo2, .jogo3, .jogo4, .jogo5, .jogo6, .jogo7, .jogo8, .jogo9 {
+.card-jogo {
     text-align: center;
     width: 90%; /* Ocupa a maior parte da largura em mobile */
     max-width: 400px; /* Limite o tamanho em telas muito grandes, mesmo em 1 coluna */
@@ -78,13 +78,20 @@ body {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0px 5px 5px gray;
+    transition: transform 0.3s ease-in-out; 
 }
+
+.card-jogo:hover {
+    transform: translateY(-5px) scale(1.02); /* Move ligeiramente para cima e aumenta um pouco */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Aumenta a sombra para efeito de elevação */
+}
+
 
 /* Recomendação: use um seletor unificado para os cards se eles tiverem o mesmo estilo */
 /* Exemplo: use uma classe "card-jogo" no HTML em vez de "jogo1", "jogo2", etc. */
 
 /* Imagens Flexíveis - ESSENCIAL PARA RESPONSIVIDADE */
-.jogo1 img, .jogo2 img, .jogo3 img, .jogo4 img, .jogo5 img, .jogo6 img, .jogo7 img, .jogo8 img, .jogo9 img {
+.card-jogo img {
     max-width: 100%; 
     height: auto;
     display: block; 
@@ -176,10 +183,18 @@ body a{
     .geral-cards {
         display: grid;
         grid-template-columns: 1fr 1fr; /* Muda para 2 colunas */
-        padding: 20px;
+        /* 1. ADICIONE O ESPAÇAMENTO ENTRE CÉLULAS */
+        gap: 50px; 
+        
+        /* 2. AUMENTE O ESPAÇAMENTO ENTRE OS CARDS E AS BORDAS DA SEÇÃO */
+        padding: 30px; /* Aumenta o padding de 20px para 30px */
+        /* Adiciona a centralização para garantir que o GridContainer se alinhe */
+        margin: 0 auto; 
+        max-width: 90%; /* Limita a largura do GridContainer dentro do Geral-site */
+        margin-left: 5px;
     }
 
-    .jogo1, .jogo2, .jogo3, .jogo4, .jogo5, .jogo6, .jogo7, .jogo8, .jogo9 {
+    .card-jogo{
         width: 100%; /* Ocupa a largura da célula do grid */
         max-width: none; /* Remove o limite de 400px, pois agora estamos em grid */
         margin: 10px; /* Margem para o grid */
@@ -198,26 +213,8 @@ body a{
     /* --- Cards de Jogo em Telas Grandes (3 colunas) --- */
     .geral-cards {
         grid-template-columns: 1fr 1fr 1fr; /* Layout final de 3 colunas */
-        /* Podemos adicionar uma largura máxima para o grid principal em desktops grandes */
-        max-width: 1200px; 
-        margin: 0 auto; 
+        
     }
-}
-
-/* --- Botão do Carrinho --- */
-.btn-carrinho {
-    /* Estilo do link */
-    color: white; /* Cor do ícone ou texto do carrinho */
-    text-decoration: none;
-    font-size: 24px; /* Tamanho do ícone/emoji */
-    padding: 10px;
-    margin-left: 10px; /* Um pequeno espaço à esquerda */
-    /* Fazer o carrinho flutuar para a direita em mobile */
-    order: 3; /* Coloca o carrinho no final (à direita) do flexbox em mobile */
-    align-self: flex-start; /* Alinha o item no topo (útil se o nav-bar quebrar linha) */
-    position: absolute; /* Para posicioná-lo no canto superior */
-    right: 10px;
-    top: 10px;
 }
 
 /* --- Estilização do Contador do Carrinho --- */
@@ -235,10 +232,6 @@ body a{
 .icone-carrinho {
     /* Mantém o estilo base do botão, mas foca no ícone */
     font-size: 24px;
-}
-
-.btn-carrinho:hover {
-    color: yellow; /* Efeito ao passar o mouse */
 }
 
 /* --- Estilização dos Botões Comprar Agora nos Cards --- */
@@ -318,6 +311,14 @@ body a{
     margin-top: 20px;
     border-top: 1px solid #444;
     font-size: 12px;
+}
+
+/* --- Ajuste para Limitar a Largura Máxima --- */
+
+.Geral-site {
+    max-width: 1200px; /* Limita a largura máxima do seu conteúdo principal */
+    margin: 0 auto;    /* Centraliza o bloco na tela */
+    /* Isso garante que, mesmo em monitores 4K, o conteúdo não ultrapasse 1200px e fique centralizado, deixando margens brancas nas laterais. */
 }
 
 /* --- Media Query para Desktop (768px ou mais) --- */
