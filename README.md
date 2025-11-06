@@ -17,8 +17,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Colocar um Plano de Fundo no Site,Dando um Toque mais Profissional no Site
 - [ ] Fazer o Link do Botão "Comprar Agora" com o Carrinho
 - [ ] Trazer Funcionalidade ao Botão de Carrinho
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [ ] 
+- [ ] 
 
 ## 💻 Pré-requisitos
 
